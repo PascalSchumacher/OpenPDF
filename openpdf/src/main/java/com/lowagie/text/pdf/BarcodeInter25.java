@@ -55,7 +55,7 @@ import java.awt.image.MemoryImageSource;
 import com.lowagie.text.error_messages.MessageLocalization;
 
 import com.lowagie.text.Element;
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.Rectangle;
 
 /** Implements the code interleaved 2 of 5. The text can include
@@ -107,7 +107,7 @@ public class BarcodeInter25 extends Barcode{
             checksumText = false;
         }
         catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
     

@@ -51,7 +51,7 @@ package com.lowagie.text.pdf;
 
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.error_messages.MessageLocalization;
 
 import java.io.IOException;
@@ -97,7 +97,7 @@ public class PdfPages {
             pages.add(current);
         }
         catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
     
@@ -109,7 +109,7 @@ public class PdfPages {
             return (PdfIndirectReference)parents.get(parents.size() - 1);
         }
         catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
     

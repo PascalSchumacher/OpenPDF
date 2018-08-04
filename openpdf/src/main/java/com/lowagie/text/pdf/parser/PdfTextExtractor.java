@@ -48,7 +48,7 @@
  */
 package com.lowagie.text.pdf.parser;
 
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.pdf.PRIndirectReference;
 import com.lowagie.text.pdf.PRStream;
 import com.lowagie.text.pdf.PRTokeniser;
@@ -251,7 +251,7 @@ public class PdfTextExtractor {
 				handler.invokeOperator(operator, operands, resources);
 			}
 		} catch (Exception e) {
-			throw ExceptionHelper.wrapOrThrow(e);
+			throw ExceptionHelper.convertToRuntimeException(e);
 		}
 		handler.popContext();
 	}

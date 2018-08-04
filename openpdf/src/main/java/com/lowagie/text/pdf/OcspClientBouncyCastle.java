@@ -127,7 +127,7 @@ import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.error_messages.MessageLocalization;
 
 /**
@@ -274,7 +274,7 @@ public class OcspClientBouncyCastle implements OcspClient {
         }
       }
     } catch (Exception ex) {
-      throw ExceptionHelper.wrapOrThrow(ex);
+      throw ExceptionHelper.convertToRuntimeException(ex);
     }
     return null;
   }

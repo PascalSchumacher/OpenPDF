@@ -71,7 +71,7 @@ import com.lowagie.text.DocListener;
 import com.lowagie.text.DocWriter;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.Image;
 import com.lowagie.text.ImgJBIG2;
 import com.lowagie.text.ImgWMF;
@@ -898,7 +898,7 @@ public class PdfWriter extends DocWriter implements
                 getStructureTreeRoot().buildTree();
             }
             catch (Exception e) {
-                throw ExceptionHelper.wrapOrThrow(e);
+                throw ExceptionHelper.convertToRuntimeException(e);
             }
             catalog.put(PdfName.STRUCTTREEROOT, structureTreeRoot.getReference());
             PdfDictionary mi = new PdfDictionary();
@@ -1061,7 +1061,7 @@ public class PdfWriter extends DocWriter implements
             object = addToBody(contents);
         }
         catch(IOException ioe) {
-            throw ExceptionHelper.wrapOrThrow(ioe);
+            throw ExceptionHelper.convertToRuntimeException(ioe);
         }
         page.add(object.getIndirectReference());
         // [U5]
@@ -1150,7 +1150,7 @@ public class PdfWriter extends DocWriter implements
             }
         }
         catch(IOException ioe) {
-            throw ExceptionHelper.wrapOrThrow(ioe);
+            throw ExceptionHelper.convertToRuntimeException(ioe);
         }
     }
 
@@ -1240,7 +1240,7 @@ public class PdfWriter extends DocWriter implements
                 super.close();
             }
             catch(IOException ioe) {
-                throw ExceptionHelper.wrapOrThrow(ioe);
+                throw ExceptionHelper.convertToRuntimeException(ioe);
             }
         }
     }
@@ -2202,7 +2202,7 @@ public class PdfWriter extends DocWriter implements
                 name = (PdfName)obj[0];
         }
         catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
         return name;
     }
@@ -2336,7 +2336,7 @@ public class PdfWriter extends DocWriter implements
                 documentPatterns.put(painter, name);
             }
         } catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
         return name;
     }
@@ -3060,7 +3060,7 @@ public class PdfWriter extends DocWriter implements
                     addToBody(pdfImage, fixedRef);
             }
             catch(IOException ioe) {
-                throw ExceptionHelper.wrapOrThrow(ioe);
+                throw ExceptionHelper.convertToRuntimeException(ioe);
             }
             imageDictionary.put(pdfImage.name(), fixedRef);
             return fixedRef;
@@ -3085,7 +3085,7 @@ public class PdfWriter extends DocWriter implements
             object = addToBody(icc);
         }
         catch(IOException ioe) {
-            throw ExceptionHelper.wrapOrThrow(ioe);
+            throw ExceptionHelper.convertToRuntimeException(ioe);
         }
         return object.getIndirectReference();
     }

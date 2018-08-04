@@ -60,7 +60,7 @@ import com.lowagie.text.error_messages.MessageLocalization;
 
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 
 /**
  * A <CODE>Table</CODE> is a <CODE>Rectangle</CODE> that contains <CODE>Cell</CODE>s,
@@ -1185,7 +1185,7 @@ public class Table extends Rectangle implements LargeElement {
             }
         }
         catch(BadElementException bee) {
-            throw ExceptionHelper.wrapOrThrow(bee);
+            throw ExceptionHelper.convertToRuntimeException(bee);
         }
     }
     

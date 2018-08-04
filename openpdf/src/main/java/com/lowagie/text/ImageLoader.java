@@ -45,7 +45,7 @@
 
 package com.lowagie.text;
 
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import org.apache.commons.io.IOUtils;
 import org.apache.sanselan.common.byteSources.ByteSourceArray;
 import org.apache.sanselan.formats.bmp.BmpImageParser;
@@ -72,7 +72,7 @@ public class ImageLoader {
             return Image.getInstance(bufferedImage, null, false);
 
         } catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
 
@@ -84,7 +84,7 @@ public class ImageLoader {
             return Image.getInstance(bufferedImage, null, false);
 
         } catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
 
@@ -96,7 +96,7 @@ public class ImageLoader {
             return Image.getInstance(bufferedImage, null, false);
 
         } catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
 
@@ -109,7 +109,7 @@ public class ImageLoader {
             return Image.getInstance(bufferedImage, null, false);
 
         } catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
 
@@ -121,7 +121,7 @@ public class ImageLoader {
             return Image.getInstance(bufferedImage, null, false);
 
         } catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
 
@@ -132,7 +132,7 @@ public class ImageLoader {
             return Image.getInstance(bufferedImage, null, false);
 
         } catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
 
@@ -143,7 +143,7 @@ public class ImageLoader {
             return Image.getInstance(bufferedImage, null, false);
 
         } catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
 
@@ -154,7 +154,7 @@ public class ImageLoader {
             return Image.getInstance(bufferedImage, null, false);
 
         } catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
 

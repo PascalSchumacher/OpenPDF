@@ -58,7 +58,7 @@ import java.util.HashMap;
 
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 
 /**
  * PdfSmartCopy has the same functionality as PdfCopy,
@@ -197,7 +197,7 @@ public class PdfSmartCopy extends PdfCopy {
                 md5 = MessageDigest.getInstance("MD5");
             }
             catch (Exception e) {
-                throw ExceptionHelper.wrapOrThrow(e);
+                throw ExceptionHelper.convertToRuntimeException(e);
             }
             ByteBuffer bb = new ByteBuffer();
             int level = 100;

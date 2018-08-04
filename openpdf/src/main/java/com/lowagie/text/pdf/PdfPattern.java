@@ -46,7 +46,7 @@
  */
 package com.lowagie.text.pdf;
 
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 
 /**
  * A <CODE>PdfPattern</CODE> defines a ColorSpace
@@ -93,7 +93,7 @@ public class PdfPattern extends PdfStream {
         try {
             flateCompress(compressionLevel);
         } catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
 }

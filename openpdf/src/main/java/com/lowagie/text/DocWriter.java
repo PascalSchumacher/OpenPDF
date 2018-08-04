@@ -56,7 +56,7 @@ import java.util.Iterator;
 import java.util.Properties;
 
 import com.lowagie.text.pdf.OutputStreamCounter;
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 
 /**
  * An abstract <CODE>Writer</CODE> class for documents.
@@ -287,7 +287,7 @@ public abstract class DocWriter implements DocListener {
                 os.close();
         }
         catch(IOException ioe) {
-            throw ExceptionHelper.wrapOrThrow(ioe);
+            throw ExceptionHelper.convertToRuntimeException(ioe);
         }
     }
 
@@ -345,7 +345,7 @@ public abstract class DocWriter implements DocListener {
             os.flush();
         }
         catch(IOException ioe) {
-            throw ExceptionHelper.wrapOrThrow(ioe);
+            throw ExceptionHelper.convertToRuntimeException(ioe);
         }
     }
 

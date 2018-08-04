@@ -52,7 +52,7 @@ package com.lowagie.text.pdf;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.Rectangle;
 
 /**
@@ -472,7 +472,7 @@ public class PdfAcroForm extends PdfDictionary {
             font = BaseFont.createFont(BaseFont.ZAPFDINGBATS, BaseFont.WINANSI, BaseFont.NOT_EMBEDDED);
         }
         catch(Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
         float size = (ury - lly);
         PdfAppearance tpOn = PdfAppearance.createAppearance(writer, urx - llx, ury - lly);

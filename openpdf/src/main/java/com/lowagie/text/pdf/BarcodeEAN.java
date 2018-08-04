@@ -53,7 +53,7 @@ import java.awt.image.MemoryImageSource;
 import java.util.Arrays;
 import com.lowagie.text.error_messages.MessageLocalization;
 
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.Rectangle;
 
 /** Generates barcodes in several formats: EAN13, EAN8, UPCA, UPCE,
@@ -184,7 +184,7 @@ public class BarcodeEAN extends Barcode{
             code = "";
         }
         catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
     

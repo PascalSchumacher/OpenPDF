@@ -59,7 +59,7 @@ import com.lowagie.text.error_messages.MessageLocalization;
 
 import com.lowagie.text.DocWriter;
 import com.lowagie.text.DocumentException;
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.Image;
 import com.lowagie.text.Rectangle;
 import com.lowagie.text.pdf.collection.PdfCollection;
@@ -205,7 +205,7 @@ public class PdfStamper
             }
         }
         catch (SignatureException se) {
-            throw ExceptionHelper.wrapOrThrow(se);
+            throw ExceptionHelper.convertToRuntimeException(se);
         }
         buf = new byte[totalBuf];
         byte[] bsig = sig.getSignerContents();

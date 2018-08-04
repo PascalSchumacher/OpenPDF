@@ -50,7 +50,7 @@
 package com.lowagie.text.pdf;
 
 import com.lowagie.bouncycastle.BouncyCastleHelper;
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Rectangle;
 import com.lowagie.text.error_messages.MessageLocalization;
@@ -847,7 +847,7 @@ public class PdfReader implements PdfViewerPreferences, Closeable {
           md.update(new byte[] { (byte) 255, (byte) 255, (byte) 255, (byte) 255 });
         encryptionKey = md.digest();
       } catch (Exception f) {
-        throw ExceptionHelper.wrapOrThrow(f);
+        throw ExceptionHelper.convertToRuntimeException(f);
       }
     }
 
@@ -932,7 +932,7 @@ public class PdfReader implements PdfViewerPreferences, Closeable {
         return obj;
       }
     } catch (Exception e) {
-      throw ExceptionHelper.wrapOrThrow(e);
+      throw ExceptionHelper.convertToRuntimeException(e);
     }
   }
 
@@ -1007,7 +1007,7 @@ public class PdfReader implements PdfViewerPreferences, Closeable {
         lastXrefPartial = idx;
       return obj;
     } catch (Exception e) {
-      throw ExceptionHelper.wrapOrThrow(e);
+      throw ExceptionHelper.convertToRuntimeException(e);
     }
   }
 
@@ -2031,7 +2031,7 @@ public class PdfReader implements PdfViewerPreferences, Closeable {
       ZCompressorInputStream is = new ZCompressorInputStream(new ByteArrayInputStream(in));
       return IOUtils.toByteArray(is);
     } catch (IOException e) {
-      throw ExceptionHelper.wrapOrThrow(e);
+      throw ExceptionHelper.convertToRuntimeException(e);
     }
   }
 
@@ -3114,7 +3114,7 @@ public class PdfReader implements PdfViewerPreferences, Closeable {
     try {
       tokens.close();
     } catch (IOException e) {
-      throw ExceptionHelper.wrapOrThrow(e);
+      throw ExceptionHelper.convertToRuntimeException(e);
     }
   }
 
@@ -3569,7 +3569,7 @@ public class PdfReader implements PdfViewerPreferences, Closeable {
           }
         }
       } catch (Exception e) {
-        throw ExceptionHelper.wrapOrThrow(e);
+        throw ExceptionHelper.convertToRuntimeException(e);
       }
     }
 

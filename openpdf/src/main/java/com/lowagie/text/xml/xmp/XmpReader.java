@@ -64,7 +64,7 @@ import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.xml.XmlDomWriter;
 
 /**
@@ -98,7 +98,7 @@ public class XmpReader {
 	        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
 	        domDocument = db.parse(bais);
 		} catch (ParserConfigurationException e) {
-			throw ExceptionHelper.wrapOrThrow(e);
+			throw ExceptionHelper.convertToRuntimeException(e);
 		}
 	}
 	

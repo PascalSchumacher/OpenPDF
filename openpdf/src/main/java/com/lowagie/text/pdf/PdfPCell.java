@@ -55,7 +55,7 @@ import com.lowagie.text.error_messages.MessageLocalization;
 import com.lowagie.text.Chunk;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Element;
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.Image;
 import com.lowagie.text.Phrase;
 import com.lowagie.text.Rectangle;
@@ -992,7 +992,7 @@ public class PdfPCell extends Rectangle{
 				try {
 					ct.go(true);
 				} catch (DocumentException e) {
-					throw ExceptionHelper.wrapOrThrow(e);
+					throw ExceptionHelper.convertToRuntimeException(e);
 				}
 				if (pivoted)
 					setBottom(getTop() - getEffectivePaddingTop() - getEffectivePaddingBottom() - ct.getFilledWidth());

@@ -53,7 +53,7 @@ import java.awt.font.GlyphVector;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.Utilities;
 
 /**
@@ -237,7 +237,7 @@ class FontDetails {
                     b = s.getBytes(CJKFont.CJK_ENCODING);
                 }
                 catch (UnsupportedEncodingException e) {
-                    throw ExceptionHelper.wrapOrThrow(e);
+                    throw ExceptionHelper.convertToRuntimeException(e);
                 }
                 break;
             }
@@ -276,7 +276,7 @@ class FontDetails {
 			byte[] b = s.getBytes(CJKFont.CJK_ENCODING);
 			return b;
 		} catch (UnsupportedEncodingException e) {
-			throw ExceptionHelper.wrapOrThrow(e);
+			throw ExceptionHelper.convertToRuntimeException(e);
 		}
 	}
 	
@@ -319,7 +319,7 @@ class FontDetails {
             }
         }
         catch(Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
     

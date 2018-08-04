@@ -52,7 +52,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Stack;
 
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.error_messages.MessageLocalization;
 import com.lowagie.text.pdf.CMapAwareDocumentFont;
 import com.lowagie.text.pdf.PRIndirectReference;
@@ -817,7 +817,7 @@ public class PdfContentStreamHandler {
 					try {
 						data = getContentBytesFromPdfObject(stream);
 					} catch (IOException ex) {
-						throw ExceptionHelper.wrapOrThrow(ex);
+						throw ExceptionHelper.convertToRuntimeException(ex);
 					}
 					new PushGraphicsState().invoke(operands, handler, resources);			
 					processContent(data, resources2);
@@ -835,7 +835,7 @@ public class PdfContentStreamHandler {
 					invokeOperator(operator, operands, resources);
 				}
 			} catch (Exception e) {
-				throw ExceptionHelper.wrapOrThrow(e);
+				throw ExceptionHelper.convertToRuntimeException(e);
 			}
 		}
 

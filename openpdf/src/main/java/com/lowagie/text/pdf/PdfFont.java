@@ -49,7 +49,7 @@
 
 package com.lowagie.text.pdf;
 
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.Image;
 
 /**
@@ -178,7 +178,7 @@ class PdfFont implements Comparable {
             return new PdfFont(bf, 12);
         }
         catch (Exception ee) {
-            throw ExceptionHelper.wrapOrThrow(ee);
+            throw ExceptionHelper.convertToRuntimeException(ee);
         }
     }
     void setHorizontalScaling(float hScale) {

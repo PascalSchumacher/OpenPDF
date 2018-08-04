@@ -50,7 +50,7 @@ import java.awt.Font;
 import java.io.File;
 import java.util.HashMap;
 
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 /** Default class to map awt fonts to BaseFont.
  * @author Paulo Soares (psoares@consiste.pt)
  */
@@ -170,7 +170,7 @@ public class DefaultFontMapper implements FontMapper {
             return BaseFont.createFont(fontKey, BaseFont.CP1252, false);
         }
         catch (Exception e) {
-            throw ExceptionHelper.wrapOrThrow(e);
+            throw ExceptionHelper.convertToRuntimeException(e);
         }
     }
     

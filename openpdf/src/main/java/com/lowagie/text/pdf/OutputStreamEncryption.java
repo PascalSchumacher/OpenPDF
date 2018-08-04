@@ -47,7 +47,7 @@
  * http://www.lowagie.com/iText/
  */
 package com.lowagie.text.pdf;
-import io.reactivex.internal.util.ExceptionHelper;
+import com.lowagie.text.ExceptionHelper;
 import com.lowagie.text.pdf.crypto.AESCipher;
 import com.lowagie.text.pdf.crypto.IVGenerator;
 import com.lowagie.text.pdf.crypto.ARCFOUREncryption;
@@ -81,7 +81,7 @@ public class OutputStreamEncryption extends OutputStream {
                 arcfour.prepareARCFOURKey(key, off, len);
             }
         } catch (Exception ex) {
-            throw ExceptionHelper.wrapOrThrow(ex);
+            throw ExceptionHelper.convertToRuntimeException(ex);
         }
     }
     
@@ -209,7 +209,7 @@ public class OutputStreamEncryption extends OutputStream {
                 try {
                     b = cipher.doFinal();
                 } catch (Exception ex) {
-                    throw ExceptionHelper.wrapOrThrow(ex);
+                    throw ExceptionHelper.convertToRuntimeException(ex);
                 }
                 out.write(b, 0, b.length);
             }
